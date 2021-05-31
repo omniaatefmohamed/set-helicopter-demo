@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="left-side">
+        <img src="demo_features.jpg" class="map" usemap="#features">
+        <map name="features">
+            <area id="arrow" coords="496,338,446,389" shape="rect" href="#" alt="arrow" class="area-element" data-maphilight='{"strokeColor":"ff9900","strokeWidth":5,"fillColor":"ff9900","fillOpacity":0.8}' data-toggle="tooltip" data-placement="top" title="on hold">
+            <area id="arrow" coords="587,489,534,545" shape="rect" href="#" alt="arrow" class="area-element" data-maphilight='{"strokeColor":"ff9900","strokeWidth":5,"fillColor":"ff9900","fillOpacity":0.8}' data-toggle="tooltip" data-placement="top" title="on hold">
+            <area id="star" shape="rect" coords="533,393,587,335" href="#" alt="star" class="area-element" data-maphilight='{"strokeColor":"008800","strokeWidth":5,"fillColor":"008800","fillOpacity":0.8}'  data-toggle="tooltip" data-placement="top" title="available">       
+            <area id="star" shape="rect" coords="445,549,494,488" href="#" alt="star" class="area-element" data-maphilight='{"strokeColor":"008800","strokeWidth":5,"fillColor":"008800","fillOpacity":0.8}'  data-toggle="tooltip" data-placement="top" title="available">       
+            <area id="star" shape="rect" coords="495,567,444,621" href="#" alt="star" class="area-element" data-maphilight='{"strokeColor":"008800","strokeWidth":5,"fillColor":"008800","fillOpacity":0.8}'  data-toggle="tooltip" data-placement="top" title="available">       
+            <area id="star" shape="rect" coords="499,409,442,472" href="#" alt="star" class="area-element" data-maphilight='{"strokeColor":"ff0000","strokeWidth":5,"fillColor":"ff0000","fillOpacity":0.8}'   data-toggle="tooltip" data-placement="top" title="Reserved">
+            <area id="star" shape="rect" coords="535,469,585,413" href="#" alt="star" class="area-element" data-maphilight='{"strokeColor":"ff0000","strokeWidth":5,"fillColor":"ff0000","fillOpacity":0.8}'   data-toggle="tooltip" data-placement="top" title="Reserved">
+            <area id="star" shape="rect" coords="535,623,587,566" href="#" alt="star" class="area-element" data-maphilight='{"strokeColor":"ff0000","strokeWidth":5,"fillColor":"ff0000","fillOpacity":0.8}'   data-toggle="tooltip" data-placement="top" title="Reserved">      
+        </map>
+    </div>
+    <div class="right-side">
+        <p class="onhold"> On Hold <span> 3 </span></p>
+        <p class="available"> Available <span> 4 </span></p>
+        <p class="reserved"> Reserved  <span> 4 </span></p>
+    </div>
+    <script src="jquery.js"></script>
+    <script src="maphelight.min.js"></script>
+    <script>
+        $(function() { 
+            $('.map').maphilight({});
+            $('.area-element').click(function(e) {
+                e.preventDefault();
+                var data = $(this).mouseout().data('maphilight') || {};
+                data.alwaysOn = !data.alwaysOn;
+                $(this).data('maphilight', data).trigger('alwaysOn.maphilight');
+            });
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+            })
+         });
+    </script>
+</body>
+</html>

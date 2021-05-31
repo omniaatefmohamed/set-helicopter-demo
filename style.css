@@ -1,0 +1,21 @@
+body{
+    padding:30px;
+}
+.onhold{
+    color:#ff9900;
+}
+.available{
+    color:#008800;
+}
+.reserved{
+    color:#ff0000;
+}
+.left-side{
+    float: left;
+}
+.right-side{
+    float: right;
+}
+.left-side,.right-side{
+    display: inline-block;
+}
